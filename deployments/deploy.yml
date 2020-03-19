@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: marvel-api-v2
+  labels:
+    app: marvel-api-v2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: marvel-api-v2
+  template:
+    metadata:
+      labels:
+        app: marvel-api-v2
+    spec:
+      containers:
+        - name: marvel-pod
+          image: <docker-image>
+          ports:
+            - containerPort: 3000

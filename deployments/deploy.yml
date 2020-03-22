@@ -1,21 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: marvel-api-v2
+  name: atlas-api-pod-v1
   labels:
-    app: marvel-api-v2
+    app: atlas-api-pod-v1
 spec:
-  replicas: 3
+  #replicas: 3
   selector:
     matchLabels:
-      app: marvel-api-v2
+      app: atlas-api-pod-v1
   template:
     metadata:
       labels:
-        app: marvel-api-v2
+        app: atlas-api-pod-v1
     spec:
       containers:
-        - name: marvel-pod
-          image: <docker-image>
+        - name: atlas-api-pod
+          image: manthapavankumar11/docker-ninja:companies-api-v2
           ports:
-            - containerPort: 3000
+            - containerPort: 5000
+          envFrom:
+            - configMapRef:
+                name: app-config
+            - secretRef:
+                name: db-details
+          securityContext:
+            runAsUser: 1010
+
+

@@ -1,6 +1,7 @@
 FROM node:12.10.0-alpine
 
 COPY ./dist ./dist
+COPY ./src/resources ./dist/resources
 COPY tsconfig.json tslint.json package.json /
 RUN yarn install --production && yarn cache clean
 

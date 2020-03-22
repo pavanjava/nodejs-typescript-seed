@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: redis
+  name: ubuntu-sleeper
   labels:
-    name: redis
+    name: ubuntu-sleeper
 spec:
   containers:
-  - name: redis
-    image: redis
+  - name: ubuntu
+    image: ubuntu
